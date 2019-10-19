@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@model MVC_Crud.ViewModel.SupplierViewModel
+
+<h2> Edit </h2>
+<div align="center" width="500px">
+    @using (Html.BeginForm("Edit", "SUPPLIERs", FormMethod.Post))
+    {
+        <table class="table"
+               width="400px"
+               cellpadding="20">
+            <tr class="btn-default">
+                <td>
+                    @Html.LabelFor(model => model.supplier.SUPLNO)
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.supplier.SUPLNO)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.supplier.SUPLNAME)
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.supplier.SUPLNAME)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.supplier.SUPLADDR)
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.supplier.SUPLADDR)
+                </td>
+            </tr>
+            
+            <tr>
+                <td> </td>
+
+                <td>
+                    <input type="submit" value="Save" /> &nbsp; <a class="btn-primary" href="@Url.Action("GetSuppliers","SUPPLIERs ")"> Back </a>
+                    @Html.HiddenFor(model => model.supplier.SUPLNO)
+                </td>
+            </tr>
+        </table>
+    }
+</div>

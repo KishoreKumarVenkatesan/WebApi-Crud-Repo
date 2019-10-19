@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div align="center">
+    @Html.ActionLink("Create", "Create", "SUPPLIERs", new { area = "" }, null)
+    <br /><br />
+    <table cellpadding="2"
+           class="table"
+           cellspacing="2"
+           border="1">
+        <tr class="btn-primary">
+
+            <th>
+                SupplierNo
+            </th>
+            <th> SupplierName</th>
+            <th> SupplierAddress</th>
+            
+        </tr>
+        @foreach (var SUP in ViewBag.listSupplier)
+        {
+            <tr class="btn-success">
+                <td>
+                    @SUP.SUPLNO
+                </td>
+                <td>
+                    @SUP.SUPLNAME
+                </td>
+                <td>
+                    @SUP.SUPLADDR
+                </td>
+                
+                <td>
+                    <a onclick="return confirm('Do you want to Delete?')"
+                       href="@Url.Action("Delete","SUPPLIERs",new { id= SUP.SUPLNO })">Delete</a> ||
+                    <a href="@Url.Action("Edit","SUPPLIERs",new { id= SUP.SUPLNO })">Edit</a>
+                
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
